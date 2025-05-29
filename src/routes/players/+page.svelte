@@ -1,8 +1,8 @@
 <script>
-  // ❌ KEIN import von $props
-   const { data } = $props(); // ✅ funktioniert
+  // Props aus Routing
+  const { data } = $props();
 
-  // ✅ Hilfsfunktion bleibt gleich
+  // Altersberechnung
   function getAge(dateString) {
     const dob = new Date(dateString);
     const today = new Date();
@@ -13,6 +13,26 @@
     }
     return age;
   }
+
+  // Dateiname für Bild aus Namen generieren
+  function toImageFilename(name, ext = 'webp') {
+    return name
+      .toLowerCase()
+      .replace(/ä/g, "ae")
+      .replace(/ö/g, "oe")
+      .replace(/ü/g, "ue")
+      .replace(/ß/g, "ss")
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // übrige diakritische Zeichen
+      .replace(/[^a-z0-9]+/g, "-") // Leerzeichen & Sonderzeichen → Bindestrich
+      .replace(/^-+|-+$/g, "") + `.${ext}`;
+  }
+
+  // Bildpfad erzeugen
+  function getImagePath(name, ext = 'webp') {
+    return `/images/players/${toImageFilename(name, ext)}`;
+  }
+
+  const fallbackImage = '/images/default-player.webp';
 </script>
 
 {#if data.team}
@@ -40,19 +60,30 @@
   <div class="row mb-5">
     {#each data.players as player}
       <div class="col-md-4 mb-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">{player.name}</h5>
-            <p class="card-text">
-              Position: {player.position}<br />
-              Rückennummer: {player.number}<br />
-              Marktwert: {player.value?.toLocaleString()} CHF<br />
-              Nationalität: {Array.isArray(player.nationality) ? player.nationality.join(" / ") : player.nationality || "–"}<br />
-              Geburtsdatum: {new Date(player.birthdate).toLocaleDateString()}<br />
-              Alter: {getAge(player.birthdate)} Jahre
-            </p>
+        <!-- Link zur Detailseite -->
+        <a href={`/players/${player._id}`} class="text-decoration-none text-dark">
+          <div class="card h-100">
+            <img
+              src={getImagePath(player.name)}
+              alt={player.name}
+              class="img-fluid rounded-top"
+              onerror={(event) => {
+                if (!event.target.dataset.fallback) {
+                  event.target.src = fallbackImage;
+                  event.target.dataset.fallback = 'true';
+                }
+              }}
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">{player.name}</h5>
+              <p class="card-text">
+                Position: {player.position}<br />
+                Alter: {getAge(player.birthdate)} Jahre
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     {/each}
   </div>

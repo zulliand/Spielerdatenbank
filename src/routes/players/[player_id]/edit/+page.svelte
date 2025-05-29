@@ -63,7 +63,7 @@
 
   <!-- Nationalität (String mit / getrennt) -->
   <div class="mb-3">
-    <label for="nationality" class="form-label">Nationalität(en)</label>
+    <label for="nationality" class="form-label">Nationalität(en) Falls mehrere Nationalitäten: bitte mit / trennen (z. B. Schweiz/Deutschland)</label>
     <input
       name="nationality"
       id="nationality"

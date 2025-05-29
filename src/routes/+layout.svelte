@@ -1,5 +1,7 @@
 <script>
-  const { children } = $props(); // Runes: kein Import nötig
+  import { page } from '$app/stores';
+  import './styles.css';
+  const { children } = $props();
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,21 +21,28 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/players?t=t1">1. Mannschaft</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/players?t=t2">U21</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/database">Datenbank</a>
+          <a
+            class="nav-link"
+            class:fw-bold={$page.url.pathname === '/players' && $page.url.searchParams.get('t') === 't1'}
+            href="/players?t=t1"
+          >1. Mannschaft</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
-            href="https://www.transfermarkt.ch/schnellsuche/ergebnis/schnellsuche?query=fc+winterthur"
-            target="_blank"
-            rel="noopener"
-          >
+            class:fw-bold={$page.url.pathname === '/players' && $page.url.searchParams.get('t') === 't2'}
+            href="/players?t=t2"
+          >U21</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            class:fw-bold={$page.url.pathname === '/database'}
+            href="/database"
+          >Datenbank</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.transfermarkt.ch/schnellsuche/ergebnis/schnellsuche?query=fc+winterthur" target="_blank" rel="noopener">
             Transfermarkt
           </a>
         </li>
