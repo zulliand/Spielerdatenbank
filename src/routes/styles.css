@@ -1,0 +1,36 @@
+h1 {
+  color: orangered;
+}
+
+.hero-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  object-fit: contain;
+}
+img.hero-img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  object-fit: contain;
+}
+
+/* Der Container begrenzt die max. Breite */
+.hero-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
