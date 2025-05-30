@@ -9,7 +9,7 @@ export async function load({ params }) {
     throw error(400, "Ungültige ID");
   }
 
-  const player = await db.getPlayer(id); // <-- hier ändern
+  const player = await db.getPlayer(id);
 
   if (!player) {
     throw error(404, "Spieler nicht gefunden.");
@@ -27,16 +27,24 @@ export const actions = {
       return { error: "Ungültige ID" };
     }
 
-    await db.updatePlayer(id, { // <-- hier ändern
-      name: data.get("name"),
-      birthdate: data.get("birthdate"),
-      nationality: data.get("nationality")?.split("/") ?? [],
-      position: data.get("position"),
-      number: Number(data.get("number")),
-      value: data.get("value") ? Number(data.get("value")) : null,
-      team_id: data.get("team_id")
-    });
+    try {
+      await db.updatePlayer(id, {
+        name: data.get("name"),
+        birthdate: data.get("birthdate"),
+        nationality: data.get("nationality")?.split("/")?.map(n => n.trim()) ?? [],
+        position: data.get("position"),
+        number: Number(data.get("number")),
+        value: data.get("value") ? Number(data.get("value")) : null,
+        team_id: data.get("team_id")
+      });
+    } catch (err) {
+      console.error("Fehler beim Aktualisieren:", err);
+      return {
+        error: "Fehler beim Speichern"
+      };
+    }
 
-    throw redirect(303, "/database");
+    // Erfolgreich → weiterleiten mit Hinweis
+    throw redirect(303, "/database?updated=1");
   }
 };

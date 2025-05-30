@@ -22,10 +22,11 @@
     ...data.player,
     nationality: Array.isArray(data.player.nationality)
       ? data.player.nationality // Wenn nationality schon Array, unverändert übernehmen
-      : (typeof data.player.nationality === "string" && data.player.nationality.length > 0
-          ? [data.player.nationality] // String in Array umwandeln
-          : []), // Sonst leeres Array
-    birthdate: birthdateISO // Berechnetes ISO-Datum für das Input-Feld
+      : typeof data.player.nationality === "string" &&
+          data.player.nationality.length > 0
+        ? [data.player.nationality] // String in Array umwandeln
+        : [], // Sonst leeres Array
+    birthdate: birthdateISO, // Berechnetes ISO-Datum für das Input-Feld
   });
 </script>
 
@@ -63,7 +64,10 @@
 
   <!-- Nationalität (String mit / getrennt) -->
   <div class="mb-3">
-    <label for="nationality" class="form-label">Nationalität(en) Falls mehrere Nationalitäten: bitte mit / trennen (z. B. Schweiz/Deutschland)</label>
+    <label for="nationality" class="form-label"
+      >Nationalität(en) Falls mehrere Nationalitäten: bitte mit / trennen (z. B.
+      Schweiz/Deutschland)</label
+    >
     <input
       name="nationality"
       id="nationality"
@@ -115,7 +119,9 @@
   <div class="mb-3">
     <label for="team_id" class="form-label">Team</label>
     <select name="team_id" id="team_id" class="form-select">
-      <option value="t1" selected={player.team_id === "t1"}>1. Mannschaft</option>
+      <option value="t1" selected={player.team_id === "t1"}
+        >1. Mannschaft</option
+      >
       <option value="t2" selected={player.team_id === "t2"}>U21</option>
     </select>
   </div>

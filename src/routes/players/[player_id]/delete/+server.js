@@ -15,5 +15,6 @@ export async function POST({ params }) {
     throw error(404, "Spieler nicht gefunden oder bereits gelöscht");
   }
 
-  throw redirect(303, "/database");
+  // Erfolgreich gelöscht → Redirect mit Hinweis
+  throw redirect(303, "/database?deleted=1");
 }
