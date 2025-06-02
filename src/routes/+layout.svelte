@@ -47,6 +47,7 @@
             href="/database"
           >Datenbank</a>
         </li>
+         <!-- externer Link in Reiter -->
         <li class="nav-item">
           <a class="nav-link" href="https://www.transfermarkt.ch/schnellsuche/ergebnis/schnellsuche?query=fc+winterthur" target="_blank" rel="noopener">
             Transfermarkt
