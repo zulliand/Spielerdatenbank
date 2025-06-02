@@ -23,7 +23,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Navigationslinks -->
+    <!-- Navigationslinks wenn man auf dem richtigen Pfad ist wird es dunkler dargestellt -->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">

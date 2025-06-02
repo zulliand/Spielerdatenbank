@@ -1,13 +1,17 @@
 /* styles.css */
 
 .hero-title {
-  color: orangered;
+  color: red;
   font-size: 2.75rem;
   font-weight: bold;
 }
 
 .hero-subtitle {
-  color: #555;
+  color: black;
   font-size: 1.1rem;
   margin-bottom: 2rem;
+}
+
+.hero-color {
+  color: red;
 }

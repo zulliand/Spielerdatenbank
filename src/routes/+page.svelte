@@ -25,7 +25,7 @@
   </div>
 
   <!-- Funktionen-Überschrift -->
-  <h5 class="fw-bold mb-4 text-danger">Was kann man in dieser App machen?</h5>
+  <h5 class="fw-bold mb-4 hero-color">Was kann man in dieser App machen?</h5>
 
   <!-- Funktions-Kacheln -->
   <div class="row row-cols-1 row-cols-md-2 g-4">
