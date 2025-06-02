@@ -89,8 +89,8 @@
   </div>
 
   <!-- Navigationshinweis -->
-  <hr class="my-5" />
-  <p class="text-muted">
+  <hr class="my-5" /> <!-- Horizontale Linie -->
+  <p class="text-muted"> <!-- Text schwächer darstellen -->
     Nutze die Navigation oben, um zu den Bereichen <strong>1. Mannschaft</strong
     >, <strong>U21</strong>,
     <strong>Datenbank</strong> oder <strong>Transfermarkt</strong> zu gelangen.

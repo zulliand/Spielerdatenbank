@@ -1,12 +1,17 @@
 <script>
+  // Zugriff auf die aktuelle URL – z. B. um den aktiven Reiter zu erkennen
   import { page } from '$app/stores';
+  // CSS-Datei für globales Styling importieren
   import './styles.css';
+  // Runes-API: Zugriff auf den Inhalt der aktuellen Seite
   const { children } = $props();
 </script>
 
+<!-- Navigationsleiste -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">FC Winterthur</a>
+    <!-- Toggle-Button für mobile Ansicht -->
     <button
       class="navbar-toggler"
       type="button"
@@ -18,6 +23,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!-- Navigationslinks -->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -50,7 +56,7 @@
     </div>
   </div>
 </nav>
-
+<!-- Hauptbereich der Seite – hier wird der eigentliche Seiteninhalt eingefügt -->
 <div class="container mt-3">
   {@render children()}
 </div>

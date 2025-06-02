@@ -2,10 +2,12 @@
   import { onMount } from 'svelte';
   const { data } = $props();
 
+  // Reaktive Zustände für Benachrichtigungen
   let showSuccess = $state(false);
   let showUpdated = $state(false);
   let showDeleted = $state(false);
 
+  // Führt Client-Code aus, sobald die Seite im Browser geladen ist
   onMount(() => {
     const params = new URLSearchParams(window.location.search);
 
@@ -13,6 +15,7 @@
     showUpdated = params.get("updated") === "1";
     showDeleted = params.get("deleted") === "1";
 
+    // Entfernt die Parameter aus der URL, sobald sie ausgewertet wurden
     if (showSuccess || showUpdated || showDeleted) {
       const url = new URL(window.location.href);
 

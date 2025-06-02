@@ -22,8 +22,8 @@
       .replace(/ö/g, "oe")
       .replace(/ü/g, "ue")
       .replace(/ß/g, "ss")
-      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // übrige diakritische Zeichen
-      .replace(/[^a-z0-9]+/g, "-") // Leerzeichen & Sonderzeichen → Bindestrich
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // übrige Zeichen
+      .replace(/[^a-z0-9]+/g, "-") // Leerzeichen & Sonderzeichen zu Bindestrich
       .replace(/^-+|-+$/g, "") + `.${ext}`;
   }
 

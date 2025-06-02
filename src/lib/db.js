@@ -19,7 +19,7 @@ async function getAllPlayers() {
     return players;
   } catch (error) {
     console.error("Fehler in getAllPlayers:", error.message);
-    throw error; // DAS HIER IST ENTSCHEIDEND!
+    throw error; 
   }
 }
 

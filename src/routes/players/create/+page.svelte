@@ -27,13 +27,13 @@
   </div>
 
   <div class="mb-3">
-    <label for="nationality" class="form-label">Nationalität(en) Falls mehrere Nationalitäten: bitte mit / trennen (z. B. Schweiz/Deutschland)</label>
+    <label for="nationality" class="form-label">Nationalität(en) Falls mehrere Nationalitäten: bitte mit / trennen (z.B. Schweiz/Deutschland)</label>
     <input
       type="text"
       name="nationality"
       id="nationality"
       class="form-control"
-      placeholder="z. B. Schweiz oder Schweiz/Italien"
+      placeholder="z.B. Schweiz oder Schweiz/Italien"
     />
   </div>
 
